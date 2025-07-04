@@ -1,0 +1,184 @@
+/* Genel Stil */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #fff;
+}
+
+/* Header */
+header {
+  background-color: #000;
+  padding: 10px 0;
+  text-align: center;
+}
+
+#logo {
+  width: 180px;
+}
+
+/* Quiz Konteyner */
+#quiz-container {
+  display: flex;
+  max-width: 1000px;
+  margin: 30px auto;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1e1e1e;
+  box-shadow: 0 0 10px #000;
+}
+
+/* Sol Bar */
+#question-progress {
+  width: 80px;
+  background-color: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 5px;
+  gap: 8px;
+}
+
+.progress-box {
+  width: 40px;
+  height: 40px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  border: 2px solid transparent;
+}
+
+.progress-box.active {
+  border: 2px solid #001f4d;
+  box-shadow: 0 0 5px #001f4d;
+}
+
+/* Soru Ana Alanı */
+#quiz-main {
+  flex: 1;
+  padding: 30px;
+}
+
+#question {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+#answers {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.answer {
+  background-color: #333;
+  padding: 12px 16px;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  user-select: none;
+}
+
+.answer:hover {
+  background-color: #444;
+}
+
+.answer.selected {
+  border-color: #2196f3;
+  background-color: #1a1a40;
+}
+
+.answer.correct {
+  border-color: #4caf50;
+  background-color: #2e7d32;
+  color: white;
+}
+
+.answer.wrong {
+  border-color: #f44336;
+  background-color: #b71c1c;
+  color: white;
+}
+
+#next-btn {
+  margin-top: 25px;
+  padding: 10px 20px;
+  background-color: #ff6f00;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#next-btn:hover:not(:disabled) {
+  background-color: #e65c00;
+}
+
+#next-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+#question-progress {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.progress-box {
+  width: 30px;
+  height: 30px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 5px;
+  user-select: none;
+}
+
+/* YouTube player görünmez */
+#youtube-player {
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden;
+  position: absolute; /* sayfada yer kaplamasın */
+}
+
+/* YouTube kontrolleri */
+#yt-controls {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#yt-controls button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  user-select: none;
+}
+
+#yt-controls button:hover {
+  background-color: #555;
+}
+
+#yt-controls input[type="range"] {
+  cursor: pointer;
+  width: 120px;
+  height: 6px;
+  border-radius: 5px;
+}

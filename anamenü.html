@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Instagram Link</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <title>LevelUp Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  
+  <a href="https://www.instagram.com/efe.1207/" target="_blank" title="Instagram Profil">
+    <img src="2227.jpg" alt="Instagram Link" id="insta-logo" />
+  </a>
+  <header>
+    <a href="anamenü.html"><img id="logo" src="imageslogo.png" alt="Logo" /></a>
+  </header>
+  
+  <nav>
+    <a href="oyunekranı.html" id="play-link">Oyna</a> <!-- BURASI DEĞİŞTİ: quiz.html'e yönlendiriyor -->
+    <a href="#" id="collection-link">Koleksiyon</a>
+    <a href="#" id="open-settings">Ayarlar</a>
+    <footer>
+  <p>&copy; 2025 LevelUp Quiz. Tüm hakları saklıdır.</p>
+</footer>
+  </nav>
+
+  <div id="random-image-container">
+    <img id="random-image" src="" alt="Rastgele Görsel" />
+    
+  </div>
+<footer>
+ 
+</footer>
+  <!-- Koleksiyon Başlangıçta Gizli -->
+  <div id="collection-container" class="hidden">
+    <h2 id="collection-title">Koleksiyon</h2>
+    <div id="cards-container"></div>
+  </div>
+
+  <!-- Blur Arkaplan -->
+  <div id="blur-bg" class="hidden"></div>
+
+  <!-- Ayarlar Modal Başlangıçta Gizli -->
+  <div id="settings-modal" class="hidden">
+    <h2 id="settings-title">Ayarlar</h2>
+    
+    <div class="modal-content">
+      <label for="language-select" id="label-language">Dil Seçimi:</label>
+      <select id="language-select">
+        <option value="tr">Türkçe</option>
+        <option value="en">English</option>
+      </select>
+
+      <label>
+        <input type="checkbox" id="toggle-darkmode" /> Dark Mode
+      </label>
+
+      <button id="close-settings">Kapat</button>
+      
+    </div>
+    
+  </div>
+
+  <script src="java.js"></script>
+</body>
+</html>
