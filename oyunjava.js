@@ -3,8 +3,8 @@ function getRandomSubset(array, size) {
   return shuffled.slice(0, size);
 }
 
-// Sorular hem Türkçe hem İngilizce olarak tanımlandı
-[
+const imageQuestions = [
+
   
   {
     "question": "Truva Savaşı hangi antik uygarlıklar arasında gerçekleşmiştir?",
