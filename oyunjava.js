@@ -356,7 +356,7 @@ const imageQuestions = [
     "answers_en": ["Taxes", "Land disputes", "Slavery", "Foreign policy"],
     "correct": 2
   }
-]
+];
 
 const advancedQuestions = [
   [
