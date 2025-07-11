@@ -359,7 +359,7 @@ const imageQuestions = [
 ];
 
 const advancedQuestions = [
-  [
+  
   {
     "question_tr": "Sanayi Devrimi'nin İngiltere'de başlamasının en önemli nedeni nedir?",
     "question_en": "What was the main reason the Industrial Revolution began in England?",
