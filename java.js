@@ -1,7 +1,7 @@
 // Rastgele Görseller
 const images = [];
 for(let i=1; i<=50; i++) {
-  images.push(`images/${i}.jpg`);
+  images.push(`images1/${i}.jpg`);
 }
 
 const randomImage = document.getElementById('random-image');
