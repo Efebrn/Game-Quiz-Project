@@ -4,384 +4,593 @@ function getRandomSubset(array, size) {
 }
 
 // Sorular hem Türkçe hem İngilizce olarak tanımlandı
-const imageQuestions = [
+[
+  
   {
-  "question_tr": "Hangi oyunda 'Pikachu' karakteri bulunur?",
-  "question_en": "In which game does the character 'Pikachu' appear?",
-  "answers_tr": ["Animal Crossing", "Pokémon", "Yu-Gi-Oh!", "Digimon"],
-  "answers_en": ["Animal Crossing", "Pokémon", "Yu-Gi-Oh!", "Digimon"],
-  "correct": 1
-},
-{
-  "question_tr": "Hangi oyunda 'Arthur Morgan' ana karakterdir?",
-  "question_en": "In which game is 'Arthur Morgan' the main character?",
-  "answers_tr": ["The Witcher 3", "Far Cry 5", "Red Dead Redemption 2", "Skyrim"],
-  "answers_en": ["The Witcher 3", "Far Cry 5", "Red Dead Redemption 2", "Skyrim"],
-  "correct": 2
-},
-{
-  "question_tr": "Hangi oyunda 'Gordon Freeman' isimli fizikçi baş kahramandır?",
-  "question_en": "In which game is the physicist named 'Gordon Freeman' the main hero?",
-  "answers_tr": ["Half-Life", "Portal", "Doom", "Bioshock"],
-  "answers_en": ["Half-Life", "Portal", "Doom", "Bioshock"],
-  "correct": 0
-},
-{
-  "question_tr": "Hangi oyun serisinin ana teması hayatta kalma ve zombi istilasıdır?",
-  "question_en": "Which game series mainly focuses on survival and zombie invasion?",
-  "answers_tr": ["Halo", "Call of Duty", "Resident Evil", "FIFA"],
-  "answers_en": ["Halo", "Call of Duty", "Resident Evil", "FIFA"],
-  "correct": 2
-},
-{
-  "question_tr": "Hangi oyunda 'Ciri' karakteri bulunur?",
-  "question_en": "In which game does the character 'Ciri' appear?",
-  "answers_tr": ["Dark Souls", "Skyrim", "The Witcher 3", "Dragon Age"],
-  "answers_en": ["Dark Souls", "Skyrim", "The Witcher 3", "Dragon Age"],
-  "correct": 2
-},
-{
-  "question_tr": "'Link' karakteri hangi oyun serisine aittir?",
-  "question_en": "To which game series does the character 'Link' belong?",
-  "answers_tr": ["God of War", "Final Fantasy", "Dark Souls", "The Legend of Zelda"],
-  "answers_en": ["God of War", "Final Fantasy", "Dark Souls", "The Legend of Zelda"],
-  "correct": 3
-},
-{
-  "question_tr": "'Doom Slayer' hangi oyun serisinin kahramanıdır?",
-  "question_en": "Doom Slayer is the hero of which game series?",
-  "answers_tr": ["Quake", "Wolfenstein", "Half-Life", "DOOM"],
-  "answers_en": ["Quake", "Wolfenstein", "Half-Life", "DOOM"],
-  "correct": 3
-},
-{
-  "question_tr": "Hangi oyun serisinde 'Lara Croft' karakteri vardır?",
-  "question_en": "In which game series does the character 'Lara Croft' appear?",
-  "answers_tr": ["God of War", "Assassin's Creed", "Uncharted", "Tomb Raider"],
-  "answers_en": ["God of War", "Assassin's Creed", "Uncharted", "Tomb Raider"],
-  "correct": 3
-},
-{
-  "question_tr": "Hangi oyun 'Steve' karakterini içerir?",
-  "question_en": "Which game includes the character 'Steve'?",
-  "answers_tr": ["Fortnite", "Terraria", "Minecraft", "Roblox"],
-  "answers_en": ["Fortnite", "Terraria", "Minecraft", "Roblox"],
-  "correct": 2
-},
-{
-  "question_tr": "'Mario' ve 'Luigi' hangi oyun serisindendir?",
-  "question_en": "'Mario' and 'Luigi' belong to which game series?",
-  "answers_tr": ["Crash Bandicoot", "Sonic the Hedgehog", "Pac-Man", "Super Mario Bros."],
-  "answers_en": ["Crash Bandicoot", "Sonic the Hedgehog", "Pac-Man", "Super Mario Bros."],
-  "correct": 3
-},
-{
-  "question_tr": "Hangi oyun serisi 'Ezio Auditore' karakterini içerir?",
-  "question_en": "Which game series features the character 'Ezio Auditore'?",
-  "answers_tr": ["Dark Souls", "The Witcher", "Dragon Age", "Assassin's Creed"],
-  "answers_en": ["Dark Souls", "The Witcher", "Dragon Age", "Assassin's Creed"],
-  "correct": 3
-},
-{
-  "question_tr": "'Solid Snake' hangi oyun serisinin kahramanıdır?",
-  "question_en": "Solid Snake is the hero of which game series?",
-  "answers_tr": ["Metal Gear Solid", "Call of Duty", "Battlefield", "Halo"],
-  "answers_en": ["Metal Gear Solid", "Call of Duty", "Battlefield", "Halo"],
-  "correct": 0
-},
-{
-  "question_tr": "'Tetris' hangi tür oyundur?",
-  "question_en": "What genre is 'Tetris'?",
-  "answers_tr": ["Puzzle", "Strategy", "RPG", "FPS"],
-  "answers_en": ["Puzzle", "Strategy", "RPG", "FPS"],
-  "correct": 0
-},
-{
-  "question_tr": "'Mega Man' oyunlarında başrol karakterin adı nedir?",
-  "question_en": "What is the name of the main character in 'Mega Man' games?",
-  "answers_tr": ["Bass", "Mega Man", "Protoman", "Roll"],
-  "answers_en": ["Bass", "Mega Man", "Protoman", "Roll"],
-  "correct": 1
-},
-{
-  "question_tr": "'Mario' oyunlarında düşman olarak kimler bulunur?",
-  "question_en": "Who are the enemies in 'Mario' games?",
-  "answers_tr": ["Koopa Troopas", "Ninjas", "Zombies", "Aliens"],
-  "answers_en": ["Koopa Troopas", "Ninjas", "Zombies", "Aliens"],
-  "correct": 0
-},
-{
-  "question_tr": "Hangi oyun 'Doomguy' karakterini içerir?",
-  "question_en": "Which game features the character 'Doomguy'?",
-  "answers_tr": ["Wolfenstein", "DOOM", "Half-Life", "Quake"],
-  "answers_en": ["Wolfenstein", "DOOM", "Half-Life", "Quake"],
-  "correct": 1
-},
-{
-  "question_tr": "Hangi oyun 'Sonic the Hedgehog' karakterine sahiptir?",
-  "question_en": "Which game features the character 'Sonic the Hedgehog'?",
-  "answers_tr": ["Crash Bandicoot", "Mario Kart", "Sonic the Hedgehog", "Pac-Man"],
-  "answers_en": ["Crash Bandicoot", "Mario Kart", "Sonic the Hedgehog", "Pac-Man"],
-  "correct": 2
-},
-{
-  "question_tr": "'Call of Duty' oyun serisi hangi türdendir?",
-  "question_en": "What genre is the 'Call of Duty' game series?",
-  "answers_tr": ["RPG", "FPS", "Strategy", "MOBA"],
-  "answers_en": ["RPG", "FPS", "Strategy", "MOBA"],
-  "correct": 1
-},
-{
-  "question_tr": "'League of Legends' hangi tür oyun türüne aittir?",
-  "question_en": "What genre does 'League of Legends' belong to?",
-  "answers_tr": ["Puzzle", "MOBA", "FPS", "RPG"],
-  "answers_en": ["Puzzle", "MOBA", "FPS", "RPG"],
-  "correct": 1
-},
-{
-  "question_tr": "'Fortnite' hangi tür oyundur?",
-  "question_en": "What type of game is 'Fortnite'?",
-  "answers_tr": ["Puzzle", "Battle Royale", "Strategy", "RPG"],
-  "answers_en": ["Puzzle", "Battle Royale", "Strategy", "RPG"],
-  "correct": 1
-},
-{
-  "question_tr": "'Overwatch' oyunu hangi türdendir?",
-  "question_en": "What genre is the game 'Overwatch'?",
-  "answers_tr": ["Puzzle", "MOBA", "FPS", "RPG"],
-  "answers_en": ["Puzzle", "MOBA", "FPS", "RPG"],
-  "correct": 2
-},
-{
-  "question_tr": "'Among Us' oyununda amaç nedir?",
-  "question_en": "What is the objective in the game 'Among Us'?",
-  "answers_tr": ["Sahtekarları bulmak", "Şehir kurmak", "Yarış kazanmak", "İmparatorluğu kurtarmak"],
-  "answers_en": ["Find the impostors", "Build a city", "Win a race", "Save the empire"],
-  "correct": 0
-},
-{
-  "question_tr": "Hangi oyun serisinde Lara Croft başrol karakteridir?",
-  "question_en": "In which game series is Lara Croft the main character?",
-  "answers_tr": ["The Last of Us", "Tomb Raider", "Assassin's Creed", "Uncharted"],
-  "answers_en": ["The Last of Us", "Tomb Raider", "Assassin's Creed", "Uncharted"],
-  "correct": 1
-},
-{
-  "question_tr": "Hangi oyun serisinde 'Master Chief' karakteri başrol oyuncusudur?",
-  "question_en": "In which game series is 'Master Chief' the main protagonist?",
-  "answers_tr": ["Mass Effect", "Halo", "Gears of War", "Call of Duty"],
-  "answers_en": ["Mass Effect", "Halo", "Gears of War", "Call of Duty"],
-  "correct": 1
-},
+    "question": "Truva Savaşı hangi antik uygarlıklar arasında gerçekleşmiştir?",
+    "question_en": "Between which ancient civilizations did the Trojan War occur?",
+    "options": [
+      {"tr": "Yunanlar ve Troyalılar", "en": "Greeks and Trojans"},
+      {"tr": "Mısırlılar ve Hititler", "en": "Egyptians and Hittites"},
+      {"tr": "Roma ve Kartaca", "en": "Rome and Carthage"},
+      {"tr": "Persler ve Yunanlar", "en": "Persians and Greeks"}
+    ],
+    "correct_answer_index": 0
+  },
   {
-  "question_tr": "Popüler Battle Royale oyunu 'Fortnite' hangi şirket tarafından geliştirilmiştir?",
-  "question_en": "Which company developed the popular battle royale game 'Fortnite'?",
-  "answers_tr": ["Ubisoft", "Valve", "Activision", "Epic Games"],
-  "answers_en": ["Ubisoft", "Valve", "Activision", "Epic Games"],
-  "correct": 3
-},
-{
-  "question_tr": "'The Legend of Zelda' serisinin ana karakterinin adı nedir?",
-  "question_en": "What is the name of the main character in 'The Legend of Zelda' series?",
-  "answers_tr": ["Mario", "Zelda", "Ganon", "Link"],
-  "answers_en": ["Mario", "Zelda", "Ganon", "Link"],
-  "correct": 3
-},
-{
-  "question_tr": "Resimdeki karakter kimdir?",
-  "question_en": "Who is the character in the picture?",
-  "image": "kolaysoruresim/mario.jpg",
-  "answers_tr": ["Luigi", "Mario", "Wario", "Bowser"],
-  "answers_en": ["Luigi", "Mario", "Wario", "Bowser"],
-  "correct": 1
-},
-{
-  "question_tr": "Resimdeki karakter kimdir?",
-  "question_en": "Who is the character in the picture?",
-  "image": "kolaysoruresim/geralt.jpg",
-  "answers_tr": ["Vesemir", "Eskel", "Geralt Of Rivia", "Ciri"],
-  "answers_en": ["Vesemir", "Eskel", "Geralt Of Rivia", "Ciri"],
-  "correct": 2
-},
-{
-  "question_tr": "Resimdeki karakter kimdir?",
-  "question_en": "Who is the character in the picture?",
-  "image": "kolaysoruresim/ellie.jpg",
-  "answers_tr": ["Max Caulfield", "Ellie", "Aloy", "Clementine"],
-  "answers_en": ["Max Caulfield", "Ellie", "Aloy", "Clementine"],
-  "correct": 1
-},
-{
-  "question_tr": "Resimdeki karakter kimdir?",
-  "question_en": "Who is the character in the picture?",
-  "image": "kolaysoruresim/kratos.jpg",
-  "answers_tr": ["Zeus", "Ares", "Kratos", "Atreus"],
-  "answers_en": ["Zeus", "Ares", "Kratos", "Atreus"],
-  "correct": 2
-},
-{
-  "question_tr": "Resimdeki karakter kimdir?",
-  "question_en": "Who is the character in the picture?",
-  "image": "kolaysoruresim/lara.jpg",
-  "answers_tr": ["Ada Wong", "Lara Croft", "Jill Valentine", "Chloe Frazer"],
-  "answers_en": ["Ada Wong", "Lara Croft", "Jill Valentine", "Chloe Frazer"],
-  "correct": 1
-},
-{
-  "question_tr": "Resimdeki karakter kimdir?",
-  "question_en": "Who is the character in the picture?",
-  "image": "kolaysoruresim/arthur.jpg",
-  "answers_tr": ["Micah Bell", "Dutch van der Linde", "John Marston", "Arthur Morgan"],
-  "answers_en": ["Micah Bell", "Dutch van der Linde", "John Marston", "Arthur Morgan"],
-  "correct": 3
-},
-{
-  "question_tr": "Resimdeki karakter kimdir?",
-  "question_en": "Who is the character in the picture?",
-  "image": "kolaysoruresim/masterchief.jpg",
-  "answers_tr": ["Sergeant Johnson", "Master Chief", "Spartan Locke", "Cortana"],
-  "answers_en": ["Sergeant Johnson", "Master Chief", "Spartan Locke", "Cortana"],
-  "correct": 1
-},
-{
-  "question_tr": "Resimdeki karakter kimdir?",
-  "question_en": "Who is the character in the picture?",
-  "image": "kolaysoruresim/solid_snake.jpg",
-  "answers_tr": ["Big Boss", "Raiden", "Liquid Snake", "Solid Snake"],
-  "answers_en": ["Big Boss", "Raiden", "Liquid Snake", "Solid Snake"],
-  "correct": 3
-},
-{
-  "question_tr": "Resimdeki karakter kimdir?",
-  "question_en": "Who is the character in the picture?",
-  "image": "kolaysoruresim/sonic.jpg",
-  "answers_tr": ["Shadow", "Knuckles", "Sonic", "Tails"],
-  "answers_en": ["Shadow", "Knuckles", "Sonic", "Tails"],
-  "correct": 2
-},
-{
-  "question_tr": "Resimdeki karakter kimdir?",
-  "question_en": "Who is the character in the picture?",
-  "image": "kolaysoruresim/trevor.jpg",
-  "answers_tr": ["Michael", "Franklin", "Trevor", "Niko Bellic"],
-  "answers_en": ["Michael", "Franklin", "Trevor", "Niko Bellic"],
-  "correct": 2
-},
-{
-  "question_tr": "Resimdeki karakter kimdir?",
-  "question_en": "Who is the character in the picture?",
-  "image": "kolaysoruresim/jill.jpg",
-  "answers_tr": ["Ada Wong", "Sheva Alomar", "Claire Redfield", "Jill Valentine"],
-  "answers_en": ["Ada Wong", "Sheva Alomar", "Claire Redfield", "Jill Valentine"],
-  "correct": 3
-},
-{
-  "question_tr": "Resimdeki karakter kimdir?",
-  "question_en": "Who is the character in the picture?",
-  "image": "kolaysoruresim/gordon_freeman.jpg",
-  "answers_tr": ["Alyx Vance", "Barney Calhoun", "Isaac Kleiner", "Gordon Freeman"],
-  "answers_en": ["Alyx Vance", "Barney Calhoun", "Isaac Kleiner", "Gordon Freeman"],
-  "correct": 3
-},
-{
-  "question_tr": "Resimdeki karakter kimdir?",
-  "question_en": "Who is the character in the picture?",
-  "image": "kolaysoruresim/doomguy.jpg",
-  "answers_tr": ["Doomguy", "Marcus Fenix", "B.J. Blazkowicz", "Sarge"],
-  "answers_en": ["Doomguy", "Marcus Fenix", "B.J. Blazkowicz", "Sarge"],
-  "correct": 0
-},
-{
-  "question_tr": "Resimdeki karakter kimdir?",
-  "question_en": "Who is the character in the picture?",
-  "image": "kolaysoruresim/dante.jpg",
-  "answers_tr": ["Vergil", "Dante", "Nero", "Trish"],
-  "answers_en": ["Vergil", "Dante", "Nero", "Trish"],
-  "correct": 1
-},
-{
-  "question_tr": "Resimdeki karakter kimdir?",
-  "question_en": "Who is the character in the picture?",
-  "image": "kolaysoruresim/ciri.jpg",
-  "answers_tr": ["Geralt", "Triss", "Ciri", "Yennefer"],
-  "answers_en": ["Geralt", "Triss", "Ciri", "Yennefer"],
-  "correct": 2
-},
-{
-  "question_tr": "Resimdeki karakter kimdir?",
-  "question_en": "Who is the character in the picture?",
-  "image": "kolaysoruresim/aloy.jpg",
-  "answers_tr": ["Ellie", "Katniss", "Clementine", "Aloy"],
-  "answers_en": ["Ellie", "Katniss", "Clementine", "Aloy"],
-  "correct": 3
-},
-{
-  "question_tr": "Resimdeki karakter kimdir?",
-  "question_en": "Who is the character in the picture?",
-  "image": "kolaysoruresim/kirby.jpg",
-  "answers_tr": ["King Dedede", "Meta Knight", "Kirby", "Waddle Dee"],
-  "answers_en": ["King Dedede", "Meta Knight", "Kirby", "Waddle Dee"],
-  "correct": 2
-},
-{
-  "question_tr": "Minecraft’ta hangi malzeme blokları kırmak için en iyisidir?",
-  "question_en": "In Minecraft, which material is best for breaking blocks?",
-  "answers_tr": ["Tahta", "Demir", "Taş", "Altın"],
-  "answers_en": ["Wood", "Iron", "Stone", "Gold"],
-  "correct": 1
-},
-{
-  "question_tr": "Pac-Man oyununda amaç nedir?",
-  "question_en": "What is the objective in the Pac-Man game?",
-  "answers_tr": ["Hayatta kalmak", "Yemekleri toplamak", "Yarış kazanmak", "Zombi avlamak"],
-  "answers_en": ["Survive", "Collect food", "Win the race", "Hunt zombies"],
-  "correct": 1
-},
-{
-  "question_tr": "Fortnite oyunu hangi türdendir?",
-  "question_en": "What genre is the game Fortnite?",
-  "answers_tr": ["Battle Royale", "Bulmaca", "Simülasyon", "RPG"],
-  "answers_en": ["Battle Royale", "Puzzle", "Simulation", "RPG"],
-  "correct": 0
-},
-{
-  "question_tr": "Tetris oyununda hangi şekiller yoktur?",
-  "question_en": "Which shapes do not exist in Tetris?",
-  "answers_tr": ["T şeklinde", "Zigzag", "Daire", "L şeklinde"],
-  "answers_en": ["T-shaped", "Zigzag", "Circle", "L-shaped"],
-  "correct": 2
-},
-{
-  "question_tr": "Super Mario’da ana karakter kimdir?",
-  "question_en": "Who is the main character in Super Mario?",
-  "answers_tr": ["Luigi", "Bowser", "Mario", "Peach"],
-  "answers_en": ["Luigi", "Bowser", "Mario", "Peach"],
-  "correct": 2
-},
-{
-  "question_tr": "Among Us oyununda oyuncular ne yapar?",
-  "question_en": "What do players do in Among Us?",
-  "answers_tr": ["Görev yapar ve sahtekârı bulur", "Yarışır", "Savaşır", "Yapboz çözer"],
-  "answers_en": ["Complete tasks and find the impostor", "Race", "Fight", "Solve puzzles"],
-  "correct": 0
-},
-{
-  "question_tr": "Pac-Man oyununda düşmanlar nasıl adlandırılır?",
-  "question_en": "What are the enemies called in Pac-Man?",
-  "answers_tr": ["Hayaletler", "Canavarlar", "Zombiler", "Robotlar"],
-  "answers_en": ["Ghosts", "Monsters", "Zombies", "Robots"],
-  "correct": 0
-},
-{
-  "question_tr": "Sonic the Hedgehog’un en hızlı arkadaşı kimdir?",
-  "question_en": "Who is Sonic the Hedgehog’s fastest friend?",
-  "answers_tr": ["Tails", "Knuckles", "Shadow", "Amy"],
-  "answers_en": ["Tails", "Knuckles", "Shadow", "Amy"],
-  "correct": 0
-}
+    "question": "Orta Çağda haçlı seferlerinin amacı neydi?",
+    "question_en": "What was the purpose of the Crusades in the Middle Ages?",
+    "options": [
+      {"tr": "Kutsal toprakları ele geçirmek", "en": "To capture the Holy Land"},
+      {"tr": "Ticaret yollarını kontrol etmek", "en": "To control trade routes"},
+      {"tr": "Yeni topraklar keşfetmek", "en": "To discover new lands"},
+      {"tr": "Bilimsel gelişmeyi teşvik etmek", "en": "To promote scientific progress"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Amerikan Bağımsızlık Bildirgesi hangi yılda ilan edilmiştir?",
+    "question_en": "In which year was the American Declaration of Independence proclaimed?",
+    "options": [
+      {"tr": "1776", "en": "1776"},
+      {"tr": "1789", "en": "1789"},
+      {"tr": "1801", "en": "1801"},
+      {"tr": "1754", "en": "1754"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "İkinci Dünya Savaşı'nın başlangıç nedeni nedir?",
+    "question_en": "What was the cause of the start of World War II?",
+    "options": [
+      {"tr": "Almanya'nın Polonya'yı işgali", "en": "Germany's invasion of Poland"},
+      {"tr": "Sırbistan'ın Avusturya'yı saldırması", "en": "Serbia attacking Austria"},
+      {"tr": "Japonya'nın Çin'i işgali", "en": "Japan's invasion of China"},
+      {"tr": "ABD'nin Pearl Harbor'a saldırısı", "en": "US attack on Pearl Harbor"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Kutsal Roma İmparatorluğu ne zaman sona erdi?",
+    "question_en": "When did the Holy Roman Empire come to an end?",
+    "options": [
+      {"tr": "1806", "en": "1806"},
+      {"tr": "1789", "en": "1789"},
+      {"tr": "1815", "en": "1815"},
+      {"tr": "1701", "en": "1701"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Büyük Fransız Devrimi'nin liderlerinden biri kimdir?",
+    "question_en": "Who was one of the leaders of the French Revolution?",
+    "options": [
+      {"tr": "Maximilien Robespierre", "en": "Maximilien Robespierre"},
+      {"tr": "Napolyon Bonapart", "en": "Napoleon Bonaparte"},
+      {"tr": "Louis XVI", "en": "Louis XVI"},
+      {"tr": "Georges Clemenceau", "en": "Georges Clemenceau"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Roma İmparatorluğu'nun resmi dili neydi?",
+    "question_en": "What was the official language of the Roman Empire?",
+    "options": [
+      {"tr": "Latince", "en": "Latin"},
+      {"tr": "Yunanca", "en": "Greek"},
+      {"tr": "Arapça", "en": "Arabic"},
+      {"tr": "İbranice", "en": "Hebrew"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Sanayi Devrimi hangi ülkede başlamıştır?",
+    "question_en": "In which country did the Industrial Revolution begin?",
+    "options": [
+      {"tr": "İngiltere", "en": "England"},
+      {"tr": "Fransa", "en": "France"},
+      {"tr": "Almanya", "en": "Germany"},
+      {"tr": "ABD", "en": "USA"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "İstanbul'un adı Osmanlı döneminde ne olarak değiştirilmiştir?",
+    "question_en": "What was Istanbul called during the Ottoman period?",
+    "options": [
+      {"tr": "Konstantinopolis", "en": "Constantinople"},
+      {"tr": "Byzantion", "en": "Byzantium"},
+      {"tr": "Ankara", "en": "Ankara"},
+      {"tr": "Smyrna", "en": "Smyrna"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Moğol İmparatorluğu'nun en büyük hükümdarı kimdir?",
+    "question_en": "Who was the greatest ruler of the Mongol Empire?",
+    "options": [
+      {"tr": "Cengiz Han", "en": "Genghis Khan"},
+      {"tr": "Kubila Han", "en": "Kublai Khan"},
+      {"tr": "Timur", "en": "Tamerlane"},
+      {"tr": "Babür Şah", "en": "Babur"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Kuzey Amerika'yı keşfeden İspanyol kaşif kimdir?",
+    "question_en": "Who was the Spanish explorer that discovered North America?",
+    "options": [
+      {"tr": "Hernán Cortés", "en": "Hernán Cortés"},
+      {"tr": "Francisco Pizarro", "en": "Francisco Pizarro"},
+      {"tr": "Juan Ponce de León", "en": "Juan Ponce de León"},
+      {"tr": "Ferdinand Magellan", "en": "Ferdinand Magellan"}
+    ],
+    "correct_answer_index": 2
+  },
+  {
+    "question": "İngilizler hangi savaşta Amerikan kolonilerine karşı kaybetmiştir?",
+    "question_en": "In which war did the British lose to the American colonies?",
+    "options": [
+      {"tr": "İngiliz-Devrim Savaşı", "en": "English Civil War"},
+      {"tr": "Fransız ve Hint Savaşı", "en": "French and Indian War"},
+      {"tr": "Amerikan Bağımsızlık Savaşı", "en": "American War of Independence"},
+      {"tr": "Yüz Yıl Savaşları", "en": "Hundred Years' War"}
+    ],
+    "correct_answer_index": 2
+  },
+  {
+    "question": "Soğuk Savaş hangi iki ülke arasında yaşanmıştır?",
+    "question_en": "Between which two countries was the Cold War fought?",
+    "options": [
+      {"tr": "ABD ve Sovyetler Birliği", "en": "USA and Soviet Union"},
+      {"tr": "İngiltere ve Almanya", "en": "England and Germany"},
+      {"tr": "Fransa ve İtalya", "en": "France and Italy"},
+      {"tr": "Çin ve Japonya", "en": "China and Japan"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Piri Reis hangi alanda ünlüdür?",
+    "question_en": "In which field is Piri Reis famous?",
+    "options": [
+      {"tr": "Haritacılık ve denizcilik", "en": "Cartography and navigation"},
+      {"tr": "Askeri strateji", "en": "Military strategy"},
+      {"tr": "Edebiyat", "en": "Literature"},
+      {"tr": "Mimarlık", "en": "Architecture"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "İslam dünyasında Altın Çağ hangi döneme denir?",
+    "question_en": "What period is called the Golden Age in the Islamic world?",
+    "options": [
+      {"tr": "8-14. yüzyıllar", "en": "8th to 14th centuries"},
+      {"tr": "5-7. yüzyıllar", "en": "5th to 7th centuries"},
+      {"tr": "15-17. yüzyıllar", "en": "15th to 17th centuries"},
+      {"tr": "17-19. yüzyıllar", "en": "17th to 19th centuries"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Hititler hangi bölgede yaşamıştır?",
+    "question_en": "In which region did the Hittites live?",
+    "options": [
+      {"tr": "Anadolu", "en": "Anatolia"},
+      {"tr": "Mısır", "en": "Egypt"},
+      {"tr": "Mezopotamya", "en": "Mesopotamia"},
+      {"tr": "Yunanistan", "en": "Greece"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Hristiyanlık hangi bölgede doğmuştur?",
+    "question_en": "In which region was Christianity born?",
+    "options": [
+      {"tr": "Filistin", "en": "Palestine"},
+      {"tr": "Roma", "en": "Rome"},
+      {"tr": "Mısır", "en": "Egypt"},
+      {"tr": "Suriye", "en": "Syria"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Emeviler hangi şehirde halifelik merkezi kurmuştur?",
+    "question_en": "In which city did the Umayyads establish the caliphate center?",
+    "options": [
+      {"tr": "Şam", "en": "Damascus"},
+      {"tr": "Bağdat", "en": "Baghdad"},
+      {"tr": "Kudüs", "en": "Jerusalem"},
+      {"tr": "Kahire", "en": "Cairo"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Rönesans hangi alanda büyük ilerlemeler sağlamıştır?",
+    "question_en": "In which field did the Renaissance bring great advancements?",
+    "options": [
+      {"tr": "Sanat ve bilim", "en": "Art and science"},
+      {"tr": "Askeri teknoloji", "en": "Military technology"},
+      {"tr": "Tarım", "en": "Agriculture"},
+      {"tr": "Denizcilik", "en": "Navigation"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Osmanlı İmparatorluğu'nun kurucusu kimdir?",
+    "question_en": "Who was the founder of the Ottoman Empire?",
+    "options": [
+      {"tr": "Osman Gazi", "en": "Osman I"},
+      {"tr": "Fatih Sultan Mehmet", "en": "Mehmed the Conqueror"},
+      {"tr": "Yavuz Sultan Selim", "en": "Selim I"},
+      {"tr": "Kanuni Sultan Süleyman", "en": "Suleiman the Magnificent"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Tarihte ilk yazılı kanunlar hangi uygarlığa aittir?",
+    "question_en": "Which civilization created the first written laws in history?",
+    "options": [
+      {"tr": "Babil", "en": "Babylon"},
+      {"tr": "Roma", "en": "Rome"},
+      {"tr": "Mısır", "en": "Egypt"},
+      {"tr": "Hititler", "en": "Hittites"}
+    ],
+    "correct_answer_index": 3
+  },
+  {
+    "question": "II. Dünya Savaşı sonrası Almanya hangi ikiye bölündü?",
+    "question_en": "After World War II, Germany was divided into which two parts?",
+    "options": [
+      {"tr": "Doğu Almanya ve Batı Almanya", "en": "East Germany and West Germany"},
+      {"tr": "Kuzey Almanya ve Güney Almanya", "en": "North Germany and South Germany"},
+      {"tr": "Almanya ve Avusturya", "en": "Germany and Austria"},
+      {"tr": "Almanya ve Polonya", "en": "Germany and Poland"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Birinci Dünya Savaşı hangi yıl başladı?",
+    "question_en": "In which year did World War I start?",
+    "options": [
+      {"tr": "1914", "en": "1914"},
+      {"tr": "1918", "en": "1918"},
+      {"tr": "1923", "en": "1923"},
+      {"tr": "1905", "en": "1905"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Napolyon Bonapart hangi savaşta yenilmiştir?",
+    "question_en": "In which battle was Napoleon Bonaparte defeated?",
+    "options": [
+      {"tr": "Waterloo Savaşı", "en": "Battle of Waterloo"},
+      {"tr": "Trafalgar Savaşı", "en": "Battle of Trafalgar"},
+      {"tr": "Austerlitz Savaşı", "en": "Battle of Austerlitz"},
+      {"tr": "Leipzig Savaşı", "en": "Battle of Leipzig"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Magna Carta hangi ülkenin tarihinde önemli bir belgedir?",
+    "question_en": "Magna Carta is an important document in the history of which country?",
+    "options": [
+      {"tr": "İngiltere", "en": "England"},
+      {"tr": "Fransa", "en": "France"},
+      {"tr": "İtalya", "en": "Italy"},
+      {"tr": "Almanya", "en": "Germany"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Roma Cumhuriyeti ne zaman sona ermiştir?",
+    "question_en": "When did the Roman Republic come to an end?",
+    "options": [
+      {"tr": "MÖ 27", "en": "27 BC"},
+      {"tr": "MS 476", "en": "476 AD"},
+      {"tr": "MÖ 44", "en": "44 BC"},
+      {"tr": "MS 1453", "en": "1453 AD"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "İslam peygamberi Hz. Muhammed hangi şehirde doğmuştur?",
+    "question_en": "In which city was the Islamic prophet Muhammad born?",
+    "options": [
+      {"tr": "Mekke", "en": "Mecca"},
+      {"tr": "Medine", "en": "Medina"},
+      {"tr": "Kudüs", "en": "Jerusalem"},
+      {"tr": "Şam", "en": "Damascus"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "İlk medeniyetlerden biri olan Sümerler hangi bölgede yaşamıştır?",
+    "question_en": "In which region did the Sumerians, one of the first civilizations, live?",
+    "options": [
+      {"tr": "Mezopotamya", "en": "Mesopotamia"},
+      {"tr": "Nil Vadisi", "en": "Nile Valley"},
+      {"tr": "Anadolu", "en": "Anatolia"},
+      {"tr": "İndus Vadisi", "en": "Indus Valley"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Kuzey Afrika'da bir zamanlar büyük bir imparatorluk olan Kartaca'nın düşmanları kimlerdi?",
+    "question_en": "Who were the enemies of Carthage, a great empire in North Africa?",
+    "options": [
+      {"tr": "Roma", "en": "Rome"},
+      {"tr": "Mısır", "en": "Egypt"},
+      {"tr": "Yunanistan", "en": "Greece"},
+      {"tr": "Persler", "en": "Persians"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "İlk yazıyı kim icat etmiştir?",
+    "question_en": "Who invented the first writing system?",
+    "options": [
+      {"tr": "Sümerler", "en": "Sumerians"},
+      {"tr": "Mısırlılar", "en": "Egyptians"},
+      {"tr": "Fenikeliler", "en": "Phoenicians"},
+      {"tr": "Yunanlar", "en": "Greeks"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Berlin Duvarı ne zaman yıkıldı?",
+    "question_en": "When was the Berlin Wall torn down?",
+    "options": [
+      {"tr": "1989", "en": "1989"},
+      {"tr": "1991", "en": "1991"},
+      {"tr": "1980", "en": "1980"},
+      {"tr": "1995", "en": "1995"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Meşrutiyet hangi ülkede ortaya çıkmıştır?",
+    "question_en": "In which country did the Constitutional Monarchy (Meşrutiyet) emerge?",
+    "options": [
+      {"tr": "Osmanlı İmparatorluğu", "en": "Ottoman Empire"},
+      {"tr": "Fransa", "en": "France"},
+      {"tr": "Rusya", "en": "Russia"},
+      {"tr": "İngiltere", "en": "England"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Mozaik sanatının en gelişmiş örnekleri hangi uygarlığa aittir?",
+    "question_en": "The most developed examples of mosaic art belong to which civilization?",
+    "options": [
+      {"tr": "Bizans", "en": "Byzantine"},
+      {"tr": "Roma", "en": "Roman"},
+      {"tr": "Yunan", "en": "Greek"},
+      {"tr": "Pers", "en": "Persian"}
+    ],
+    "correct_answer_index": 0
+  }
+  ,{
+    "question": "Napolyon Bonapart hangi ülkeden gelmiştir?",
+    "question_en": "Which country was Napoleon Bonaparte from?",
+    "options": [
+      {"tr": "İtalya", "en": "Italy"},
+      {"tr": "Fransa", "en": "France"},
+      {"tr": "İspanya", "en": "Spain"},
+      {"tr": "Almanya", "en": "Germany"}
+    ],
+    "correct_answer_index": 1
+  },
+  {
+    "question": "İslamiyet'in doğduğu şehir hangisidir?",
+    "question_en": "In which city was Islam founded?",
+    "options": [
+      {"tr": "Medine", "en": "Medina"},
+      {"tr": "Mekke", "en": "Mecca"},
+      {"tr": "Kudüs", "en": "Jerusalem"},
+      {"tr": "Şam", "en": "Damascus"}
+    ],
+    "correct_answer_index": 1
+  },
+  {
+    "question": "Kara Harp olarak bilinen savaş hangisidir?",
+    "question_en": "Which war is known as the Crimean War?",
+    "options": [
+      {"tr": "Napolyon Savaşları", "en": "Napoleonic Wars"},
+      {"tr": "Kırım Savaşı", "en": "Crimean War"},
+      {"tr": "Birinci Dünya Savaşı", "en": "World War I"},
+      {"tr": "İkinci Dünya Savaşı", "en": "World War II"}
+    ],
+    "correct_answer_index": 1
+  },
+  {
+    "question": "Magna Carta hangi yüzyılda imzalanmıştır?",
+    "question_en": "In which century was the Magna Carta signed?",
+    "options": [
+      {"tr": "14. yüzyıl", "en": "14th century"},
+      {"tr": "15. yüzyıl", "en": "15th century"},
+      {"tr": "12. yüzyıl", "en": "12th century"},
+      {"tr": "13. yüzyıl", "en": "13th century"}
+    ],
+    "correct_answer_index": 3
+  },
+  {
+    "question": "Büyük İskender hangi bölgeyi fethetmiştir?",
+    "question_en": "Which region did Alexander the Great conquer?",
+    "options": [
+      {"tr": "Pers İmparatorluğu", "en": "Persian Empire"},
+      {"tr": "Mısır", "en": "Egypt"},
+      {"tr": "Roma İmparatorluğu", "en": "Roman Empire"},
+      {"tr": "Kartaca", "en": "Carthage"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Endüstri Devrimi'nin sonucu olarak ne ortaya çıktı?",
+    "question_en": "What emerged as a result of the Industrial Revolution?",
+    "options": [
+      {"tr": "Feodalizm", "en": "Feudalism"},
+      {"tr": "Kentleşme", "en": "Urbanization"},
+      {"tr": "Orta Çağ", "en": "Middle Ages"},
+      {"tr": "Kolonyalizm", "en": "Colonialism"}
+    ],
+    "correct_answer_index": 1
+  },
+  {
+    "question": "Atlantis efsanesi hangi kültüre aittir?",
+    "question_en": "The legend of Atlantis belongs to which culture?",
+    "options": [
+      {"tr": "Mısır", "en": "Egyptian"},
+      {"tr": "Roma", "en": "Roman"},
+      {"tr": "Mezopotamya", "en": "Mesopotamian"},
+      {"tr": "Yunan", "en": "Greek"}
+    ],
+    "correct_answer_index": 3
+  },
+  {
+    "question": "Amerika kıtasını keşfeden kaşif kimdir?",
+    "question_en": "Who was the explorer that discovered the Americas?",
+    "options": [
+      {"tr": "Vasco da Gama", "en": "Vasco da Gama"},
+      {"tr": "Cristoforo Colombo", "en": "Christopher Columbus"},
+      {"tr": "James Cook", "en": "James Cook"},
+      {"tr": "Ferdinand Magellan", "en": "Ferdinand Magellan"}
+    ],
+    "correct_answer_index": 1
+  },
+  {
+    "question": "Orta Çağ'da feodal beyler neyi kontrol ederdi?",
+    "question_en": "What did feudal lords control during the Middle Ages?",
+    "options": [
+      {"tr": "Kentleri", "en": "Cities"},
+      {"tr": "Deniz yollarını", "en": "Sea routes"},
+      {"tr": "Toprakları", "en": "Land"},
+      {"tr": "Ticaret yollarını", "en": "Trade routes"}
+    ],
+    "correct_answer_index": 2
+  },
+  {
+    "question": "Berlin Duvarı hangi yılda yıkılmıştır?",
+    "question_en": "In which year was the Berlin Wall demolished?",
+    "options": [
+      {"tr": "1995", "en": "1995"},
+      {"tr": "1985", "en": "1985"},
+      {"tr": "1991", "en": "1991"},
+      {"tr": "1989", "en": "1989"}
+    ],
+    "correct_answer_index": 3
+  },
+  {
+    "question": "Rönesans hangi şehirde başlamıştır?",
+    "question_en": "In which city did the Renaissance begin?",
+    "options": [
+      {"tr": "Roma", "en": "Rome"},
+      {"tr": "Floransa", "en": "Florence"},
+      {"tr": "Paris", "en": "Paris"},
+      {"tr": "Venedik", "en": "Venice"}
+    ],
+    "correct_answer_index": 1
+  },
+  {
+    "question": "İnka medeniyeti hangi kıtada yer alır?",
+    "question_en": "On which continent was the Inca civilization located?",
+    "options": [
+      {"tr": "Avrupa", "en": "Europe"},
+      {"tr": "Kuzey Amerika", "en": "North America"},
+      {"tr": "Asya", "en": "Asia"},
+      {"tr": "Güney Amerika", "en": "South America"}
+    ],
+    "correct_answer_index": 3
+  },
+  {
+    "question": "Orta Çağ'da engizisyon ne amaçla kurulmuştur?",
+    "question_en": "What was the purpose of the Inquisition in the Middle Ages?",
+    "options": [
+      {"tr": "Dini sapkınlıkları cezalandırmak", "en": "Punishing heresy"},
+      {"tr": "Ekonomik reformlar", "en": "Economic reforms"},
+      {"tr": "Ticaret anlaşmaları yapmak", "en": "Making trade agreements"},
+      {"tr": "Bilimsel araştırmalar", "en": "Scientific research"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Hangi savaş Magna Carta'nın imzalanmasına yol açtı?",
+    "question_en": "Which war led to the signing of the Magna Carta?",
+    "options": [
+      {"tr": "Yüz Yıl Savaşları", "en": "Hundred Years' War"},
+      {"tr": "Barons' Savaşı", "en": "Barons' War"},
+      {"tr": "İngiliz İç Savaşı", "en": "English Civil War"},
+      {"tr": "Wars of the Roses", "en": "Wars of the Roses"}
+    ],
+    "correct_answer_index": 1
+  },
+  {
+    "question": "Kurtuluş Savaşı hangi devletlere karşı yapılmıştır?",
+    "question_en": "Against which countries was the Turkish War of Independence fought?",
+    "options": [
+      {"tr": "Fransa ve İtalya", "en": "France and Italy"},
+      {"tr": "Yunanistan ve İngiltere", "en": "Greece and England"},
+      {"tr": "İtalya ve Almanya", "en": "Italy and Germany"},
+      {"tr": "Sovyetler ve Almanya", "en": "Soviets and Germany"}
+    ],
+    "correct_answer_index": 1
+  },
+  {
+    "question": "Moğol İmparatorluğu'nun kurucusu kimdir?",
+    "question_en": "Who was the founder of the Mongol Empire?",
+    "options": [
+      {"tr": "Timur", "en": "Tamerlane"},
+      {"tr": "Cengiz Han", "en": "Genghis Khan"},
+      {"tr": "Babür Şah", "en": "Babur"},
+      {"tr": "Kubila Han", "en": "Kublai Khan"}
+    ],
+    "correct_answer_index": 1
+  },
+  {
+    "question": "İlk modern anayasayı hangi ülke kabul etmiştir?",
+    "question_en": "Which country adopted the first modern constitution?",
+    "options": [
+      {"tr": "ABD", "en": "USA"},
+      {"tr": "Fransa", "en": "France"},
+      {"tr": "İngiltere", "en": "England"},
+      {"tr": "Rusya", "en": "Russia"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "Rönesansın en ünlü sanatçılarından biri kimdir?",
+    "question_en": "Who is one of the most famous artists of the Renaissance?",
+    "options": [
+      {"tr": "Michelangelo", "en": "Michelangelo"},
+      {"tr": "Leonardo da Vinci", "en": "Leonardo da Vinci"},
+      {"tr": "Pablo Picasso", "en": "Pablo Picasso"},
+      {"tr": "Vincent van Gogh", "en": "Vincent van Gogh"}
+    ],
+    "correct_answer_index": 1
+  },
+  {
+    "question": "Hangi imparatorluk Moğollar tarafından yıkılmıştır?",
+    "question_en": "Which empire was destroyed by the Mongols?",
+    "options": [
+      {"tr": "Abbasi İmparatorluğu", "en": "Abbasid Empire"},
+      {"tr": "Bizans İmparatorluğu", "en": "Byzantine Empire"},
+      {"tr": "Osmanlı İmparatorluğu", "en": "Ottoman Empire"},
+      {"tr": "Roma İmparatorluğu", "en": "Roman Empire"}
+    ],
+    "correct_answer_index": 0
+  },
+  {
+    "question": "İstanbul'un fethi hangi padişah döneminde gerçekleşti?",
+    "question_en": "During whose reign was the conquest of Istanbul?",
+    "options": [
+      {"tr": "Yavuz Sultan Selim", "en": "Selim I"},
+      {"tr": "Kanuni Sultan Süleyman", "en": "Suleiman the Magnificent"},
+      {"tr": "Fatih Sultan Mehmet", "en": "Mehmed the Conqueror"},
+      {"tr": "II. Abdülhamid", "en": "Abdulhamid II"}
+    ],
+    "correct_answer_index": 2
+  }
+]
 
-
-];
 
 const advancedQuestions = [
   {
